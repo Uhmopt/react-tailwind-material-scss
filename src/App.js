@@ -1,13 +1,19 @@
+import { ThemeProvider } from "@mui/material";
+import "App.css";
 import { Provider } from "react-redux";
 import Root from "routes";
 import store from "store";
-import "./App.css";
 import "style/index.scss";
+import { lightTheme } from "theme/lightTheme";
+import PrerenderTailwind from "views/prerender/PrerenderTailwind";
 
 function App() {
   return (
     <Provider store={store}>
-      <Root />
+      <PrerenderTailwind />
+      <ThemeProvider theme={lightTheme}>
+        <Root />
+      </ThemeProvider>
     </Provider>
   );
 }
